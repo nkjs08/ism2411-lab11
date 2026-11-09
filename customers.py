@@ -91,3 +91,23 @@ catalog = {
 for product, details in catalog.items():
     if details["stock"] < 20:
         print(f"LOW STOCK: {product} - Only {details['stock']} left")
+
+#ex8
+
+transactions = [
+    {"region": "South", "amount": 300},
+    {"region": "North", "amount": 150},
+    {"region": "South", "amount": 200}
+]
+
+region_totals = {}
+
+for transaction in transactions:
+    region = transaction["region"]
+    amount = transaction["amount"]
+
+    region_totals[region] = region_totals.get(region, 0) + amount
+
+for region in sorted(region_totals):
+    print(f"{region}: ${region_totals[region]}")
+
